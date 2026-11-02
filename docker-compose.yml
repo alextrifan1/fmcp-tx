@@ -1,0 +1,30 @@
+services:
+  accounts-db:
+    image: postgres:16
+    container_name: accounts-db
+    environment:
+      POSTGRES_DB: accounts_db
+      POSTGRES_USER: fmcp
+      POSTGRES_PASSWORD: fmcp
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db/accounts:/docker-entrypoint-initdb.d
+      - accounts-data:/var/lib/postgresql/data
+
+  events-db:
+    image: postgres:16
+    container_name: events-db
+    environment:
+      POSTGRES_DB: events_db
+      POSTGRES_USER: fmcp
+      POSTGRES_PASSWORD: fmcp
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./db/events:/docker-entrypoint-initdb.d
+      - events-data:/var/lib/postgresql/data
+
+volumes:
+  accounts-data:
+  events-data:

@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+app:
+  db:
+    accounts:
+      url: jdbc:postgresql://localhost:5433/accounts_db
+      username: fmcp
+      password: fmcp
+    events:
+      url: jdbc:postgresql://localhost:5434/events_db
+      username: fmcp
+      password: fmcp
